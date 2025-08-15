@@ -1,78 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Form</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soumya's Website</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    (function() {
+      emailjs.init("u1ubiB9-EbrJEI3Ce");
+    })();
+    function sendEmail(event) {
+      event.preventDefault();
+      const form = event.target;
+      emailjs.sendForm('service_soumya74', 'template_7v2pu0o', form)
+        .then(() => {
+          alert("Message sent!");
+          form.reset();
+        }, (error) => {
+          alert("Error: " + JSON.stringify(error));
+        });
     }
-    form {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      width: 300px;
-    }
-    h2 {
-      margin-top: 0;
-      text-align: center;
-    }
-    input, textarea, button {
-      width: 100%;
-      margin: 10px 0;
-      padding: 10px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    textarea {
-      resize: vertical;
-    }
-    button {
-      background: #007bff;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #0056b3;
-    }
-  </style>
+  </script>
 </head>
 <body>
+  <header>
+    <h1>Welcome to Soumya's Website</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-  <form id="contactForm">
-    <h2>Contact Us</h2>
-    <input type="text" name="from_name" placeholder="Your Name" required>
-    <input type="email" name="reply_to" placeholder="Your Email" required>
-    <textarea name="message" placeholder="Your Message" required></textarea>
-    <button type="submit">Send</button>
-  </form>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hi, I'm Soumya, a computer student and gaming enthusiast. I build websites, code, and explore tech!</p>
+  </section>
 
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script>
-    emailjs.init('u1ubiB9-EbrJEI3Ce'); // Your Public Key
+  <section id="projects">
+    <h2>Projects</h2>
+    <p>Check out my projects below:</p>
+    <!-- Add project cards here -->
+  </section>
 
-    document.getElementById('contactForm').addEventListener('submit', function(event) {
-      event.preventDefault();
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form id="contactForm" onsubmit="sendEmail(event)">
+      <input type="text" name="from_name" placeholder="Your Name" required>
+      <input type="email" name="reply_to" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
 
-      emailjs.sendForm('service_soumya74', 'template_7v2pu0o', this)
-        .then(() => {
-          alert('Message sent!');
-          this.reset();
-        }, (error) => {
-          alert('Failed to send message: ' + JSON.stringify(error));
-        });
-    });
-  </script>
-
+  <footer>
+    <p>© 2025 Soumya</p>
+  </footer>
 </body>
 </html>
