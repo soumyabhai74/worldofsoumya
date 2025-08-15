@@ -1,36 +1,63 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>World of Soumya</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keyboard Typing Animation</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(270deg, #ff0000, #00ff00, #0000ff);
+      background-size: 600% 600%;
+      animation: rgbShift 10s ease infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: monospace;
+      color: white;
+    }
+
+    @keyframes rgbShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .typing {
+      font-size: 2rem;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid white;
+      animation: typing 4s steps(40, end), blink 0.7s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 20ch; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to the World of Soumya</h1>
-        <p>Passionate CSE Student | Python, Java, Web Dev Enthusiast</p>
-    </header>
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Hi, I’m Soumya, a Computer Science Engineering student. I love solving problems and building cool stuff using Python, Java, and now learning Web Development!</p>
-    </section>
-    <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li>Python</li>
-            <li>C Programming</li>
-            <li>Java</li>
-            <li>HTML, CSS (Learning)</li>
-        </ul>
-    </section>
-    <section id="projects">
-        <h2>Projects</h2>
-        <p>Coming soon! Stay tuned for amazing projects I'm building.</p>
-    </section>
-    <footer>
-        <p>© 2025 Soumya | worldofsoumya.github.io</p>
-    </footer>
+  <div class="typing">Welcome to My Portfolio</div>
+
+  <script>
+    // Optional: Loop typing animation
+    const text = "Welcome to My Portfolio";
+    const typingDiv = document.querySelector('.typing');
+    let index = 0;
+    function type() {
+      if (index <= text.length) {
+        typingDiv.textContent = text.slice(0, index);
+        index++;
+        setTimeout(type, 100);
+      }
+    }
+    type();
+  </script>
 </body>
 </html>
