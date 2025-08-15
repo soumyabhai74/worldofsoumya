@@ -1,184 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Soumya Giri Portfolio</title>
-  <style>
-    /* Basic Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Arial', sans-serif;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background: #f5f5f5;
-      color: #333;
-    }
-
-    /* Header */
-    header {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: #ffffff;
-    }
-
-    h1 {
-      font-size: 3rem;
-      color: #222;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: 0.1em solid #222;
-      animation: typing 3s steps(30, end), blink 0.75s step-end infinite;
-    }
-
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
-    }
-
-    @keyframes blink {
-      50% { border-color: transparent; }
-    }
-
-    p {
-      font-size: 1.2rem;
-      margin-top: 10px;
-      text-align: center;
-      max-width: 600px;
-    }
-
-    /* Sections */
-    section {
-      padding: 80px 20px;
-    }
-
-    .projects {
-      background: #eaeaea;
-    }
-
-    .projects h2 {
-      text-align: center;
-      margin-bottom: 50px;
-      color: #222;
-    }
-
-    .project-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-    }
-
-    .project {
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      width: 280px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .project:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    }
-
-    .project h3 {
-      margin-bottom: 10px;
-      color: #222;
-    }
-
-    .project p {
-      color: #555;
-    }
-
-    /* Navigation */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: #fff;
-      padding: 10px 20px;
-      display: flex;
-      justify-content: flex-end;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      z-index: 100;
-    }
-
-    nav a {
-      color: #222;
-      text-decoration: none;
-      margin-left: 20px;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #555;
-    }
-
-    /* Footer */
-    footer {
-      padding: 50px 20px;
-      text-align: center;
-      background: #f1f1f1;
-      color: #777;
-    }
-
-    @media (max-width: 600px) {
-      .project-list {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soumya bhai Portfolio</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </head>
 <body>
 
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<!-- Navigation -->
+<nav>
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-  <header id="home">
-    <h1>Soumya Giri</h1>
-    <p>Computer Engineering Student | Aspiring Developer | Tech Enthusiast</p>
-  </header>
+<!-- Header / Typing Animation -->
+<header id="home">
+  <h1 id="typing"></h1>
+</header>
 
-  <section id="projects" class="projects">
-    <h2>My Projects</h2>
-    <div class="project-list">
-      <div class="project">
-        <h3>Project 1</h3>
-        <p>Brief description of your project goes here.</p>
-      </div>
-      <div class="project">
-        <h3>Project 2</h3>
-        <p>Brief description of your project goes here.</p>
-      </div>
-      <div class="project">
-        <h3>Project 3</h3>
-        <p>Brief description of your project goes here.</p>
-      </div>
+<!-- About Me Section -->
+<section id="about">
+  <h2>About Me</h2>
+  <p>Hi, I'm Soumya from West Bengal, India. Currently pursuing B.Tech from College of Engineering and Management, Kolaghat.</p>
+  <p>Passionate about coding, learning, and creating real-world solutions.</p>
+  <p><strong>Skills:</strong> Python, C, Java, Web Development (HTML, CSS, JS)</p>
+</section>
+
+<!-- Projects Section -->
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="project-list">
+    <div class="project">
+      <h3>Personal Portfolio Website</h3>
+      <p>A clean, professional portfolio showcasing my skills and projects.</p>
     </div>
-  </section>
+    <div class="project">
+      <h3>Beginner Python Projects</h3>
+      <p>Simple Python programs to practice and learn coding concepts.</p>
+    </div>
+    <div class="project">
+      <h3>Web Development Projects</h3>
+      <p>HTML, CSS, and JavaScript projects demonstrating real-world applications.</p>
+    </div>
+  </div>
+</section>
 
-  <section id="contact">
-    <h2 style="text-align:center; margin-bottom:30px;">Contact Me</h2>
-    <p style="text-align:center;">Email: soumya@example.com | Phone: +91 1234567890</p>
-  </section>
+<!-- Contact Section -->
+<section id="contact">
+  <h2>Connect With Me</h2>
+  <form id="contact-form">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+  <p id="form-status"></p>
+</section>
 
-  <footer>
-    &copy; 2025 Soumya Giri. All rights reserved.
-  </footer>
+<footer>
+  &copy; 2025 Soumya Giri. All rights reserved.
+</footer>
 
+<script src="js/main.js"></script>
 </body>
 </html>
